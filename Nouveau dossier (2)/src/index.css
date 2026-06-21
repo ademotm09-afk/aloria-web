@@ -1,0 +1,140 @@
+@import "tailwindcss";
+
+:root {
+  --primary-bg: #faf6f0;
+  --secondary-bg: #f5ede3;
+  --card-bg: #ffffff;
+  --gold: #c5a55a;
+  --dark-gold: #b8943f;
+  --text: #1a1a1a;
+  --muted: #6b6b6b;
+  --border: #e8e0d5;
+  --success: #2d8a4e;
+  --error: #d94444;
+  --warning: #e8a838;
+  --font-logo: "Playfair Display", serif;
+  --font-heading: "Playfair Display", serif;
+  --font-body: "Inter", sans-serif;
+  --font-decor: "Playfair Display", serif;
+  --base-size: 15px;
+  --heading-scale: 1.34;
+  --logo-tracking: 0.3em;
+  --line-height: 1.65;
+}
+
+* {
+  box-sizing: border-box;
+}
+
+html {
+  scroll-behavior: smooth;
+}
+
+body {
+  margin: 0;
+  background: var(--primary-bg);
+  color: var(--text);
+  font-family: var(--font-body);
+  font-size: var(--base-size);
+  line-height: var(--line-height);
+  cursor: default;
+}
+
+button,
+a,
+input,
+textarea,
+select {
+  font: inherit;
+}
+
+button,
+a {
+  cursor: pointer;
+}
+
+.font-logo {
+  font-family: var(--font-logo);
+}
+
+.font-heading {
+  font-family: var(--font-heading);
+}
+
+.font-decor {
+  font-family: var(--font-decor);
+}
+
+.nav-link {
+  position: relative;
+}
+
+.nav-link::after {
+  content: "";
+  position: absolute;
+  inset-inline: 0;
+  bottom: -8px;
+  height: 1px;
+  transform: scaleX(0);
+  transform-origin: center;
+  background: var(--gold);
+  transition: transform 280ms ease;
+}
+
+.nav-link:hover::after {
+  transform: scaleX(1);
+}
+
+.marquee {
+  animation: aloria-marquee 28s linear infinite;
+}
+
+.cart-bounce {
+  animation: cart-pop 420ms ease;
+}
+
+.badge-pulse {
+  animation: badge-pulse 1.8s ease-in-out infinite;
+}
+
+.circular-text {
+  animation: rotate-badge 12s linear infinite;
+}
+
+.group-hover\:scale-108:hover,
+.group:hover .group-hover\:scale-108 {
+  transform: scale(1.08);
+}
+
+.no-motion *,
+.no-motion *::before,
+.no-motion *::after {
+  animation-duration: 0.001ms !important;
+  animation-iteration-count: 1 !important;
+  scroll-behavior: auto !important;
+  transition-duration: 0.001ms !important;
+}
+
+@keyframes aloria-marquee {
+  from { transform: translateX(0); }
+  to { transform: translateX(-33.333%); }
+}
+
+@keyframes cart-pop {
+  0%, 100% { transform: scale(1); }
+  45% { transform: scale(1.12); }
+}
+
+@keyframes badge-pulse {
+  0%, 100% { transform: scale(1); opacity: 1; }
+  50% { transform: scale(1.04); opacity: 0.82; }
+}
+
+@keyframes rotate-badge {
+  to { transform: rotate(360deg); }
+}
+
+::selection {
+  background: var(--gold);
+  color: white;
+}
